@@ -14,6 +14,9 @@ pipeline {
         stage("First step") {
             steps {
                 sh 'ssh root@first \'hostname\''
+            },
+            steps {
+                sh 'ssh root@first \'echo $USER\''
             }
         }
         stage("Second step") {

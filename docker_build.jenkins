@@ -1,0 +1,23 @@
+#!groovy
+// Check up 'first' properties
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+        label 'main'
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages {
+        stage("create docker image") {
+            steps {
+                echo " ========== start buildind image =========="
+                dir ('docker/toolbox') {
+                    sh 'docker build .'
+                }
+            }
+        }
+    }
+}

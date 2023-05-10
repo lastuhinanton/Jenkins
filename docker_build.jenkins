@@ -34,7 +34,7 @@ pipeline {
             steps {
                 echo " ========== start buildind image ========== "
                 sh '''
-                docker push antonlastukhin/server:1.0.0:latest
+                docker push antonlastukhin/server:1.0.0
                 '''
             }
         }

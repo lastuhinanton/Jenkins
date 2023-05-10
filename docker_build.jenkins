@@ -15,7 +15,7 @@ pipeline {
         stage("create docker image") {
             steps {
                 echo " ========== start buildind image ========== "
-                docker rmi -f server
+                @docker rmi -f server
                 dir ('docker/toolbox') {
                     sh 'docker build -t server .'
                 }

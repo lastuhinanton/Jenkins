@@ -22,6 +22,7 @@ Result: {RESULT}
 Link: {URL}
     """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
+    requests.get(url).json()
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={SMILE}"
     requests.get(url).json()
 

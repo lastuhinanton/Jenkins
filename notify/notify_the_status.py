@@ -15,7 +15,7 @@ if __name__ == "__main__":
     URL = sys.argv[4]
     NUMBER = sys.argv[5]
     NAME = sys.argv[6]
-    SMILES= 🤩🤩🤩 if RESULT == "SUCCESS" else 😔😔😔
+    SMILES= "🤩🤩🤩" if RESULT == "SUCCESS" else "😔😔😔"
     MESSAGE = f"""
 Stage: {NAME} ==> {NUMBER}
 Result: {RESULT}

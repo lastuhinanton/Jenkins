@@ -12,10 +12,10 @@ pipeline{
             }
             post {
                 success{
-                    withCredentials([string(credentialsId: 'token_id', variable: 'TOKEN_ID'), string(credentialsId: 'bot_id', variable: 'BOT_ID')]) {
+                    withCredentials([string(credentialsId: 'bot_info', variable: 'BOT_INFO')]) {
                         dir ('notify') {
                             sh """
-                                python3 notify_the_status.py $TOKEN_ID
+                                python3 notify_the_status.py $BOT_INFO
                             """
                         }
                     }

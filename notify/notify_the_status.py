@@ -16,5 +16,5 @@ if __name__ == "__main__":
         Hello word!
     """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
-    print(requests.get(url).json())
+    requests.get(url).json()
 

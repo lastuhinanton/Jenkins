@@ -18,7 +18,7 @@ pipeline{
                     withCredentials([string(credentialsId: 'bot_info', variable: 'BOT_INFO')]) {
                         dir ('notify') {
                             sh """
-                                python3 notify_the_status.py $BOT_INFO
+                                python3 notify_the_status.py ${BOT_INFO}
                             """
                         }
                     }

@@ -9,7 +9,6 @@ pipeline{
                 dir ('docker/toolbox') {
                     sh 'docker build -t antonlastukhin/server:latest .'
                 }
-                echo "Init result: ${currentBuild.result}"
                 echo "Init currentResult: ${currentBuild.currentResult}"
                 echo "The number of stage: ${currentBuild.number}"
             }
@@ -22,6 +21,7 @@ pipeline{
                             """
                         }
                     }
+                    echo "Init result: ${currentBuild.result}"
                 }
                 failure{
                     echo "========A execution failed========"

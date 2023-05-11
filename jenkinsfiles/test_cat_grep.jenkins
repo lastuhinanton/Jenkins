@@ -13,8 +13,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@first'
-                sh 'echo \'$HOSTNAME\''
+                sh 'ssh root@first \'hostname\''
             }
         }
     }

@@ -10,12 +10,10 @@ pipeline{
                     sh 'docker build -t antonlastukhin/server:latest .'
                 }
             }
-            post {
+            post {sh 'ssh root@first \'hostname\''
                 success{
-                    steps{
-                        dir ('notify') {
-                            python3 nofify_the_status.py "========A executed successfully========"
-                        }
+                    dir ('notify') {
+                        sh 'python3 nofify_the_status.py "========A executed successfully========"'
                     }
                 }
                 failure{

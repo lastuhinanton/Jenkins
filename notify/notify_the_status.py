@@ -16,7 +16,7 @@ if __name__ == "__main__":
     NUMBER = sys.argv[5]
     NAME = sys.argv[6]
     MESSAGE = f"""
-        Stage: {NAME} #{NUMBER}
+        Stage: {NAME} {NUMBER}
         Result: {RESULT}
         Link: {URL}
     """

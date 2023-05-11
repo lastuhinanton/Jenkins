@@ -14,8 +14,9 @@ if __name__ == "__main__":
     RESULT = sys.argv[3]
     URL = sys.argv[4]
     NUMBER = sys.argv[5]
-    MESSAGE = """
-        Hello word!
+    NAME = sys.argv[6]
+    MESSAGE = f"""
+        STAGE {NAME}
     """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
     requests.get(url).json()

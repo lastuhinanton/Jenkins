@@ -14,7 +14,7 @@ pipeline{
                 success{
                     withCredentials([string(credentialsId: 'very-secret', variable: 'MY_SECRET')]) {
                         dir ('notify') {
-                            sh 'python3 notify_the_status.py $MY_SECRET'
+                            sh 'python3 notify_the_status.py "$MY_SECRET"'
                         }
                     }
                 }

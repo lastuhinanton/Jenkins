@@ -12,7 +12,9 @@ pipeline{
             }
             post {
                 success{
-                    echo "========A executed successfully========"
+                    dir ('notify') {
+                        python3 nofify_the_status.py "========A executed successfully========"
+                    }
                 }
                 failure{
                     echo "========A execution failed========"

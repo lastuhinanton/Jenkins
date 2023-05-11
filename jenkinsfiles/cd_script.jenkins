@@ -6,6 +6,17 @@ pipeline{
         stage("Build"){
             steps{
                 echo "======= Build stage ======="
+                dir ('docker/toolbox') {
+                    sh 'docker build -t antonlastukhin/server:latest .'
+                }
+            }
+            post {
+                success{
+                    echo "========A executed successfully========"
+                }
+                failure{
+                    echo "========A execution failed========"
+                }
             }
         }
         stage("Test"){

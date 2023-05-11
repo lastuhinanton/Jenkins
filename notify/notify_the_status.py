@@ -20,7 +20,6 @@ if __name__ == "__main__":
 Stage: {NAME} ==> {NUMBER}
 Result: {RESULT}
 Link: {URL}
-{SMILES}
     """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={SMILE}"

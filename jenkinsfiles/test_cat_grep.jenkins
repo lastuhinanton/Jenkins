@@ -19,7 +19,7 @@ pipeline {
         stage("Second step") {
             steps {
                 withCredentials([string(credentialsId: 'very-secret', variable: "MY_SECRET")])
-                sh 'ssh root@first \'echo $MY_SECRET\''
+                sh 'echo $MY_SECRET'
             }
         }
     }

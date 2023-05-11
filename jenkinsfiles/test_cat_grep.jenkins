@@ -16,5 +16,10 @@ pipeline {
                 sh 'ssh root@first \'hostname\''
             }
         }
+        stage("Second step") {
+            steps {
+                sh 'echo "Hello world!"'
+            }
+        }
     }
 }

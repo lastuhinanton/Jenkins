@@ -15,4 +15,4 @@ if __name__ == "__main__":
     server = Jenkins(jenkins_url, username=username, password=password)
     credential_id = 'token_id'
     creds = server.credentials(credential_id)
-    print(creds.get_secret().get_plain_text())
+    print(creds.secret.getPlainText())

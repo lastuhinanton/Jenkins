@@ -14,7 +14,7 @@ pipeline {
         stage("First step") {
             steps {
                 sh 'ssh root@first'
-                sh 'echo "Hello world!"'
+                sh 'echo $HOSTNAME'
             }
         }
     }

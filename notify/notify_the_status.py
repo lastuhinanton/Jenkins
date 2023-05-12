@@ -12,7 +12,9 @@ import requests
 # NUMBER = sys.argv[5]
 # NAME = sys.argv[6]
 
-
+def send_message_to_bot(token_id, chat_id, message):
+    url = f"https://api.telegram.org/bot{token_id}/sendMessage?chat_id={chat_id}&text={message}"
+    requests.get(url).json()
 
 def start_pipeline(arguments):
     id_pipeline = arguments[2]

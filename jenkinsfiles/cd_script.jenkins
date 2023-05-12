@@ -3,6 +3,15 @@ pipeline{
         label 'main'
     }
     stages{
+        stage("Start") {
+            steps{
+                dir ('notify') {
+                    sh """
+                        python3 notify_the_status.py 'start'
+                    """
+                }
+            }
+        }
         stage("Build"){
             steps{
                 echo "======= Build stage ======="
@@ -15,7 +24,7 @@ pipeline{
                     withCredentials([string(credentialsId: 'chat_id', variable: 'CHAT_ID'), string(credentialsId: 'bot_id', variable: 'BOT_ID')]) {
                         dir ('notify') {
                             sh """
-                                python3 notify_the_status.py 'STAGE' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Build"
+                                python3 notify_the_status.py 'stage' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Build"
                             """
                         }
                     }
@@ -31,7 +40,7 @@ pipeline{
                     withCredentials([string(credentialsId: 'chat_id', variable: 'CHAT_ID'), string(credentialsId: 'bot_id', variable: 'BOT_ID')]) {
                         dir ('notify') {
                             sh """
-                                python3 notify_the_status.py 'STAGE' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Test"
+                                python3 notify_the_status.py 'stage' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Test"
                             """
                         }
                     }
@@ -47,7 +56,7 @@ pipeline{
                     withCredentials([string(credentialsId: 'chat_id', variable: 'CHAT_ID'), string(credentialsId: 'bot_id', variable: 'BOT_ID')]) {
                         dir ('notify') {
                             sh """
-                                python3 notify_the_status.py 'STAGE' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Deploy"
+                                python3 notify_the_status.py 'stage' $BOT_ID $CHAT_ID ${currentBuild.result} ${currentBuild.absoluteUrl} ${currentBuild.number} "Deploy"
                             """
                         }
                     }

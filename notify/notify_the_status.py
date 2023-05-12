@@ -17,11 +17,10 @@ if __name__ == "__main__":
     NAME = sys.argv[6]
     SMILE= "✅" if RESULT == "SUCCESS" else "🚫"
     MESSAGE = f"""
-+--------------------------------+
-| Stage: {NAME} ==> {NUMBER}     |
-| Result: {SMILE}{RESULT}{SMILE} |
-| Link: {URL}                    |
-+--------------------------------+
+========= Stage {NAME}  N> {NUMBER} =========
+Result: {SMILE}{RESULT}{SMILE} 
+Link: {URL}
+
 """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
     requests.get(url).json()

@@ -21,7 +21,7 @@ def start_pipeline(arguments):
     token_id = arguments[3]
     chat_id = arguments[4]
     message = f"""
-====== Pipeline with ID <{id_pipelineD}> started ======
+====== Pipeline N<>{id_pipelineD}<> started ======
 """
     send_message_to_bot(token_id, chat_id, message)
 
@@ -30,9 +30,8 @@ def notify_status_stage_to_bot(arguments):
     chat_id = arguments[3]
     status = arguments[4]
     url = arguments[5]
-    number = arguments[6]
-    name = arguments[7]
-    smile = "✅" if RESULT == "SUCCESS" else "🚫"
+    name = arguments[6]
+    smile = "✅" if status == "SUCCESS" else "🚫"
     message = f"""
 =====
 Stage: {name}
@@ -46,6 +45,7 @@ Link: {url}
 if __name__ == "__main__":
     arguments = sys.argv
     if arguments[1] == 'start':
+        start_pipeline(arguments)
     elif arguments[1] == 'stage':
         notify_status_stage_to_bot(arguments)
     elif arguments[1] == 'summary':

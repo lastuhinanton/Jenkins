@@ -24,7 +24,8 @@ def start_pipeline(arguments):
     now = datetime.now()
     message = f"""
 ====== ⏩ Pipeline {id_pipeline} started ⏪ ======
-Time: {now.strftime("%m/%d/%Y, %H:%M:%S")}
+Time: {now.strftime("%H:%M:%S")}
+Date: {now.strftime("%m/%d%Y")}
 """
     send_message_to_bot(token_id, chat_id, message)
 
@@ -53,7 +54,8 @@ def finish_pipeline(arguments):
     now = datetime.now()
     message = f"""
 ====== ⏩ Pipeline {id_pipeline} finished with status {smile}{status}{smile}⏪ ======
-Time: {now.strftime("%m/%d/%Y, %H:%M:%S")}
+Time: {now.strftime("%H:%M:%S")}
+Date: {now.strftime("%m/%d%Y")}
 """
     send_message_to_bot(token_id, chat_id, message)
 
@@ -66,4 +68,4 @@ if __name__ == "__main__":
     elif arguments[1] == 'stage':
         notify_status_stage_to_bot(arguments)
     elif arguments[1] == 'finish':
-        pass
+        finish_pipeline(arguments)

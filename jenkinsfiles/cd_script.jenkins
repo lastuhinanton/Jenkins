@@ -8,10 +8,11 @@ pipeline{
                 echo "======= Build stage ======="
                 dir ('docker/toolbox') {
                     sh 'docker build -t antonlastukhin/server:latest .'
+                    exit(1)
                 }
             }
             post {
-                success{
+                always{
                     withCredentials([string(credentialsId: 'chat_id', variable: 'CHAT_ID'), string(credentialsId: 'bot_id', variable: 'BOT_ID')]) {
                         dir ('notify') {
                             sh """
@@ -19,9 +20,6 @@ pipeline{
                             """
                         }
                     }
-                }
-                failure{
-                    echo "========A execution failed========"
                 }
             }
         }

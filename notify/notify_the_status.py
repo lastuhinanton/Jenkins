@@ -46,7 +46,7 @@ def finish_pipeline(arguments):
     smile = "✅" if status == "SUCCESS" else "🚫"
     now = datetime.now()
     message = f"""
-===========================================
+==================================
 Status: {smile}{status}{smile}
 Time: {now.strftime("%H:%M:%S")}
 Date: {now.strftime("%m/%d%Y")}

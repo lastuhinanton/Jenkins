@@ -18,7 +18,7 @@ def start_pipeline(arguments):
     message = f"""
 ====== ⏩ Pipeline {id_pipeline} started ⏪ ======
 Time: {now.strftime("%H:%M:%S")}
-Date: {now.strftime("%m/%d%Y")}
+Date: {now.strftime("%m/%d/%Y")}
 """
     send_message_to_bot(token_id, chat_id, message)
 
@@ -47,7 +47,7 @@ def finish_pipeline(arguments):
     now = datetime.now()
     message = f"""
 Time: {now.strftime("%H:%M:%S")}
-Date: {now.strftime("%m/%d%Y")}
+Date: {now.strftime("%m/%d/%Y")}
 ====== ⏩ Pipeline {id_pipeline} finished ⏪ ======
 """
     send_message_to_bot(token_id, chat_id, message)

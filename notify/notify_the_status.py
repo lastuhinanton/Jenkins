@@ -18,7 +18,7 @@ if __name__ == "__main__":
     SMILE= "✅" if RESULT == "SUCCESS" else "🚫"
     MESSAGE = f"""
 Stage: {NAME} ==> {NUMBER}
-Result: ${SMILE}{RESULT}${SMILE}
+Result: {SMILE}{RESULT}{SMILE}
 Link: {URL}
     """
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"

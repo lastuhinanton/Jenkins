@@ -21,7 +21,7 @@ def start_pipeline(arguments):
     token_id = arguments[3]
     chat_id = arguments[4]
     message = f"""
-====== Pipeline N<>{id_pipeline}<> started ======
+====== Pipeline Id{id_pipeline} started ======
 """
     send_message_to_bot(token_id, chat_id, message)
 

@@ -4,6 +4,7 @@
 
 import sys
 import requests
+from datetime import datetime
 
 # TOKEN = sys.argv[1]
 # CHAT_ID = sys.argv[2]
@@ -20,8 +21,10 @@ def start_pipeline(arguments):
     id_pipeline = arguments[2]
     token_id = arguments[3]
     chat_id = arguments[4]
+    now = datetime.now()
     message = f"""
-====== Pipeline {id_pipeline} started ======
+====== ⏩ Pipeline {id_pipeline} started ⏪ ======
+Time: {now.strftime("%m/%d/%Y, %H:%M:%S")}
 """
     send_message_to_bot(token_id, chat_id, message)
 
@@ -40,6 +43,20 @@ Link: {url}
 =====
 """
     send_message_to_bot(token_id, chat_id, message)
+
+def finish_pipeline(arguments):
+    id_pipeline = arguments[2]
+    token_id = arguments[3]
+    chat_id = arguments[4]
+    status = arguments[5]
+    smile = "✅" if status == "SUCCESS" else "🚫"
+    now = datetime.now()
+    message = f"""
+====== ⏩ Pipeline {id_pipeline} finished with status {smile}{status}{smile}⏪ ======
+Time: {now.strftime("%m/%d/%Y, %H:%M:%S")}
+"""
+    send_message_to_bot(token_id, chat_id, message)
+
     
 
 if __name__ == "__main__":
@@ -48,5 +65,5 @@ if __name__ == "__main__":
         start_pipeline(arguments)
     elif arguments[1] == 'stage':
         notify_status_stage_to_bot(arguments)
-    elif arguments[1] == 'summary':
+    elif arguments[1] == 'finish':
         pass

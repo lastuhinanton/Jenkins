@@ -12,27 +12,39 @@ import requests
 # NUMBER = sys.argv[5]
 # NAME = sys.argv[6]
 
-def notify_status_stage_to_bot(arrguments):
-    TOKEN = arrguments[2]
-    CHAT_ID = arrguments[3]
-    RESULT = arrguments[4]
-    URL = arrguments[5]
-    NUMBER = arrguments[6]
-    NAME = arrguments[7]
-    SMILE= "✅" if RESULT == "SUCCESS" else "🚫"
-    MESSAGE = f"""
+
+
+def start_pipeline(arguments):
+    id_pipeline = arguments[2]
+    token_id = arguments[3]
+    chat_id = arguments[4]
+    message = f"""
+====== Pipeline with ID <{id_pipelineD}> started ======
+"""
+    send_message_to_bot(token_id, chat_id, message)
+
+def notify_status_stage_to_bot(arguments):
+    token_id = arguments[2]
+    chat_id = arguments[3]
+    status = arguments[4]
+    url = arguments[5]
+    number = arguments[6]
+    name = arguments[7]
+    smile = "✅" if RESULT == "SUCCESS" else "🚫"
+    message = f"""
 =====
-Stage {NAME}  N=>{NUMBER}
-Result: {SMILE}{RESULT}{SMILE} 
-Link: {URL}
+Stage: {name}
+Status: {smile}{status}{smile}
+Link: {url}
 =====
 """
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={MESSAGE}"
-    requests.get(url).json()
+    send_message_to_bot(token_id, chat_id, message)
+    
 
 if __name__ == "__main__":
-    arrguments = sys.argv
-    if arrguments[1] == "STAGE":
-        notify_status_stage_to_bot(arrguments)
-    elif arrguments[1] == "SUMMARY":
+    arguments = sys.argv
+    if arguments[1] == 'start':
+    elif arguments[1] == 'stage':
+        notify_status_stage_to_bot(arguments)
+    elif arguments[1] == 'summary':
         pass

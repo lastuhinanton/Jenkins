@@ -8,7 +8,6 @@ pipeline{
                 echo "======= Build stage ======="
                 dir ('docker/toolbox') {
                     sh 'docker build -t antonlastukhin/server:latest .'
-                    exit(1)
                 }
             }
             post {

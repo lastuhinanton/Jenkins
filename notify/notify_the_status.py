@@ -12,7 +12,7 @@ import requests
 # NUMBER = sys.argv[5]
 # NAME = sys.argv[6]
 
-def notify_status_stage_to_bot(token_id, user_id):
+def notify_status_stage_to_bot(arrguments):
     TOKEN = arrguments[2]
     CHAT_ID = arrguments[3]
     RESULT = arrguments[4]

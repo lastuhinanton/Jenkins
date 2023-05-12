@@ -52,8 +52,6 @@ Date: {now.strftime("%m/%d/%Y")}
 """
     send_message_to_bot(token_id, chat_id, message)
 
-    
-
 if __name__ == "__main__":
     arguments = sys.argv
     if arguments[1] == 'start':

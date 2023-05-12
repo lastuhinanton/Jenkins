@@ -28,7 +28,7 @@ def notify_status_stage_to_bot(arguments):
     status = arguments[4]
     url = arguments[5]
     name = arguments[6]
-    if name == 'Deploy': exit(1)
+    if name == 'Deploy': status = "FAILURE"
     smile = "✅" if status == "SUCCESS" else "🚫"
     message = f"""
 =====

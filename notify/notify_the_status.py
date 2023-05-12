@@ -28,6 +28,7 @@ def notify_status_stage_to_bot(arguments):
     status = arguments[4]
     url = arguments[5]
     name = arguments[6]
+    if name == "Deploy": status = 'FAILURE'
     smile = "✅" if status == "SUCCESS" else "🚫"
     message = f"""
 =====
@@ -43,7 +44,6 @@ def finish_pipeline(arguments):
     token_id = arguments[3]
     chat_id = arguments[4]
     status = arguments[5]
-    smile = "✅" if status == "SUCCESS" else "🚫"
     now = datetime.now()
     message = f"""
 Time: {now.strftime("%H:%M:%S")}

@@ -1,5 +1,6 @@
 """
-    This script push the status of the pipeline to the Telegram bot
+    Python module provides an easy and comfortable way
+    to create notifications for Jenkins pipeline status in a Telegram bot.
 """
 
 import sys
